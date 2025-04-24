@@ -282,7 +282,7 @@ tags: [Unit Testing, F#, FsCheck, Property-based Testing]
 &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">let</span>&nbsp;srvc&nbsp;=&nbsp;FakeSongService&nbsp;()
 &nbsp;&nbsp;&nbsp;&nbsp;srvc.Scrobble&nbsp;(<span style="color:#a31515;">&quot;cat&quot;</span>,&nbsp;Song&nbsp;(1,&nbsp;<span style="color:blue;">false</span>,&nbsp;6uy),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10)
 &nbsp;&nbsp;&nbsp;&nbsp;srvc.Scrobble&nbsp;(<span style="color:#a31515;">&quot;ana&quot;</span>,&nbsp;Song&nbsp;(1,&nbsp;<span style="color:blue;">false</span>,&nbsp;5uy),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10)
-&nbsp;&nbsp;&nbsp;&nbsp;srvc.Scrobble&nbsp;(<span style="color:#a31515;">&quot;ana&quot;</span>,&nbsp;Song&nbsp;(2,&nbsp;&nbsp;<span style="color:blue;">true</span>,&nbsp;5uy),&nbsp;9_9990)
+&nbsp;&nbsp;&nbsp;&nbsp;srvc.Scrobble&nbsp;(<span style="color:#a31515;">&quot;ana&quot;</span>,&nbsp;Song&nbsp;(2,&nbsp;&nbsp;<span style="color:blue;">true</span>,&nbsp;5uy),&nbsp;9_990)
 &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">let</span>&nbsp;sut&nbsp;=&nbsp;RecommendationsProvider&nbsp;srvc
  
 &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">let!</span>&nbsp;actual&nbsp;=&nbsp;sut.GetRecommendationsAsync&nbsp;<span style="color:#a31515;">&quot;cat&quot;</span>
@@ -293,7 +293,7 @@ tags: [Unit Testing, F#, FsCheck, Property-based Testing]
         It adds three scrobbles to the data store, but only one of them is verified (which is what the <code>true</code> value indicates), so this is the only recommendation the test expects to see.
     </p>
     <p>
-        Notice that although song number <code>2</code> 'only' has <em>9,9990</em> plays, the user <em>ana</em> has exactly <em>10,000</em> plays in all, so barely makes the cut. By carefully adding five examples like this one, I was able to 'kill all mutants'.
+        Notice that although song number <code>2</code> 'only' has <em>9,990</em> plays, the user <em>ana</em> has exactly <em>10,000</em> plays in all, so barely makes the cut. By carefully adding five examples like this one, I was able to 'kill all mutants'.
     </p>
     <p>
         In all, I have eight tests; three FsCheck properties and five normal <a href="https://xunit.net/">xUnit.net</a> <em>facts</em>.
